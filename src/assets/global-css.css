@@ -1,0 +1,189 @@
+:root {
+    /* Paleta de cores expandida */
+    --cor-primaria: #4A90E2;     /* Azul vibrante */
+    --cor-secundaria: #50C878;   /* Verde esmeralda */
+    --cor-terciaria: #FF6B6B;    /* Vermelho suave */
+    --cor-quaternaria: #4ECDC4;  /* Turquesa */
+    --cor-fundo: #F9F5EB;        /* Bege claro */
+    --cor-texto-escuro: #333333;
+    --cor-texto-claro: #F7F7F7;
+    --cor-destaque-1: #FFD93D;   /* Amarelo dourado */
+    --cor-destaque-2: #FF6D00;   /* Laranja vibrante */
+    
+    /* Gradientes */
+    --gradiente-primario: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    --gradiente-secundario: linear-gradient(135deg, var(--cor-terciaria), var(--cor-quaternaria));
+    
+    /* Sombras e transições */
+    --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sombra-elevada: 0 10px 20px rgba(0, 0, 0, 0.15);
+    --transicao-padrao: all 0.3s ease-in-out;
+}
+
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+}
+
+/* Componentes reutilizáveis */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transicao-padrao);
+    background: var(--gradiente-primario);
+    color: var(--cor-texto-claro);
+    box-shadow: var(--sombra-suave);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-elevada);
+    background: var(--gradiente-secundario);
+}
+
+.card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: var(--sombra-suave);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: var(--transicao-padrao);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra-elevada);
+}
+
+/* Navegação */
+nav {
+    background: var(--gradiente-primario);
+    padding: 1rem;
+    box-shadow: var(--sombra-suave);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transicao-padrao);
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: var(--cor-destaque-1);
+    transition: var(--transicao-padrao);
+}
+
+nav a:hover {
+    color: var(--cor-destaque-1);
+}
+
+nav a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Formulários */
+.form-grupo {
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--cor-primaria);
+    border-radius: 10px;
+    transition: var(--transicao-padrao);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 0 3px rgba(80, 200, 120, 0.2);
+}
+
+/* Títulos */
+h1, h2, h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+}
+
+h1::after, h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--gradiente-primario);
+    margin-top: 0.5rem;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 0.5rem 0;
+    }
+}
+
+/* Animações e efeitos extras */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fade-in 0.5s ease-out;
+}
+
+/* Estados de erro e sucesso */
+.erro {
+    color: var(--cor-terciaria);
+    border: 1px solid var(--cor-terciaria);
+    background-color: rgba(255, 107, 107, 0.1);
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.sucesso {
+    color: var(--cor-secundaria);
+    border: 1px solid var(--cor-secundaria);
+    background-color: rgba(80, 200, 120, 0.1);
+    padding: 0.5rem;
+    border-radius: 5px;
+}

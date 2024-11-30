@@ -1,0 +1,95 @@
+:root {
+    --cor-primaria: #4A90E2;
+    --cor-secundaria: #50C878;
+    --cor-fundo: #F4F7F6;
+    --cor-texto: #333;
+    --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transicao-padrao: all 0.3s ease;
+}
+
+.dashboard {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+}
+
+.dashboard h1 {
+    text-align: center;
+    color: var(--cor-primaria);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.dashboard h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
+}
+
+.indicadores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.indicadores > div {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: var(--transicao-padrao);
+    box-shadow: var(--sombra-suave);
+    border: 2px solid transparent;
+}
+
+.indicadores > div:hover {
+    transform: translateY(-10px);
+    border-color: var(--cor-primaria);
+}
+
+.indicadores h3 {
+    color: var(--cor-primaria);
+    margin-bottom: 0.5rem;
+}
+
+.indicadores p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--cor-secundaria);
+}
+
+.indicadores button {
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: var(--transicao-padrao);
+}
+
+.indicadores button:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .indicadores {
+        grid-template-columns: 1fr;
+    }
+}

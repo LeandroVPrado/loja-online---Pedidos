@@ -1,0 +1,68 @@
+:root {
+    --cor-primaria: #4A90E2;
+    --cor-secundaria: #50C878;
+    --cor-fundo: #F4F7F6;
+    --cor-texto: #333;
+    --sombra-suave: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transicao-padrao: all 0.3s ease;
+}
+
+.login {
+    max-width: 400px;
+    margin: 4rem auto;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+}
+
+.login h1 {
+    color: var(--cor-primaria);
+    margin-bottom: 2rem;
+}
+
+.login form div {
+    margin-bottom: 1rem;
+}
+
+.login label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--cor-texto);
+}
+
+.login input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: var(--transicao-padrao);
+}
+
+.login input:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+.login button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transicao-padrao);
+}
+
+.login button:hover {
+    background-color: var(--cor-secundaria);
+    transform: scale(1.02);
+}
+
+.erro {
+    color: #FF6B6B;
+    margin-top: 1rem;
+    font-weight: bold;
+}
